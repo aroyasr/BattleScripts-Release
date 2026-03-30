@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://k63f6jthdcwv"]
+
+[ext_resource type="Script" uid="uid://c714u4ixw5bs" path="res://godot_script/GameController.gd" id="1_20ljv"]
+
+[node name="GameController" type="Node"]
+script = ExtResource("1_20ljv")
+
+[node name="background" type="ColorRect" parent="."]
+z_index = -5
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.415686, 0.643137, 0.411765, 1)
+
+[node name="current_ui_scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

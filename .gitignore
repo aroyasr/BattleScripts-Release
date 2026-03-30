@@ -1,0 +1,19 @@
+.godot/
+*.import
+*.import?
+*.tmp
+*.temp
+*.log
+# Godot editor caches
+.godot/editor/
+.godot/imported/
+.godot/shader_cache/
+.godot/uid_cache.bin
+# Build artifacts from python_friend or other tools
+python_friend/build/
+python_script/__pycache__/
+**/__pycache__/
+**/*.pyc
+# OS files
+.DS_Store
+Thumbs.db

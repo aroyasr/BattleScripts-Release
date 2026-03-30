@@ -1,0 +1,170 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3v67f58xq062"]
+
+[ext_resource type="Script" uid="uid://ba7h7b4mchqvu" path="res://godot_script/turn_history_cell.gd" id="1_tb8s1"]
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="1_ueyk5"]
+[ext_resource type="FontFile" uid="uid://bwmgt6knwlbpl" path="res://Assets/PixelOperatorMono-Bold.ttf" id="2_tb8s1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb8s1"]
+bg_color = Color(0.415686, 0.643137, 0.411765, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_av0ql"]
+Label/styles/normal = SubResource("StyleBoxFlat_tb8s1")
+VBoxContainer/constants/separation = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxdps"]
+paragraph_spacing = 2.5
+font = ExtResource("1_ueyk5")
+font_size = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkqjh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cal3j"]
+font = ExtResource("2_tb8s1")
+font_size = 32
+font_color = Color(1, 0.229536, 0.174185, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_et776"]
+font = ExtResource("2_tb8s1")
+font_size = 32
+font_color = Color(0.233148, 0.457125, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmroj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1cjs"]
+font = ExtResource("2_tb8s1")
+font_size = 32
+
+[node name="TurnHistoryCell" type="VBoxContainer"]
+offset_right = 150.0
+offset_bottom = 195.0
+theme = SubResource("Theme_av0ql")
+script = ExtResource("1_tb8s1")
+
+[node name="Label_grid1" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 65)
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_mxdps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_grid2" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 65)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_mxdps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Steal_p1" type="Label" parent="Label_grid2"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bkqjh")
+text = "Steal!"
+label_settings = SubResource("LabelSettings_cal3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Support_p1" type="Label" parent="Label_grid2"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bkqjh")
+text = "Support!"
+label_settings = SubResource("LabelSettings_et776")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money_p1" type="Label" parent="Label_grid2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -35.0
+offset_right = 32.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fmroj")
+text = "+ $x"
+label_settings = SubResource("LabelSettings_a1cjs")
+
+[node name="Label_grid3" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 65)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_mxdps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Steal_p2" type="Label" parent="Label_grid3"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bkqjh")
+text = "Steal!"
+label_settings = SubResource("LabelSettings_cal3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Support_p2" type="Label" parent="Label_grid3"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bkqjh")
+text = "Support!"
+label_settings = SubResource("LabelSettings_et776")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money_p2" type="Label" parent="Label_grid3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -35.0
+offset_right = 32.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fmroj")
+text = "+ $x"
+label_settings = SubResource("LabelSettings_a1cjs")

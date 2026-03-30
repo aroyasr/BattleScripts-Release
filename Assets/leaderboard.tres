@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d4n0kgniir5un"]
+
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="1_yx7kg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx7kg"]
+
+[resource]
+GridContainer/constants/h_separation = 0
+GridContainer/constants/v_separation = 10
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_yx7kg")
+Label/styles/normal = SubResource("StyleBoxFlat_yx7kg")

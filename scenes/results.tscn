@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbexvuwpvy8it"]
+
+[ext_resource type="Theme" uid="uid://b60lwleljs85q" path="res://Assets/match_theme.tres" id="1_21kdr"]
+[ext_resource type="Script" uid="uid://brna0mvu2coho" path="res://scenes/results.gd" id="1_r4wmc"]
+[ext_resource type="Texture2D" uid="uid://b5hr7s53alprh" path="res://Assets/half-txt-dm-fix.png" id="2_r4wmc"]
+
+[sub_resource type="Theme" id="Theme_s58my"]
+HBoxContainer/constants/separation = 128
+
+[node name="Results" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4wmc")
+
+[node name="tuhuratech_logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1415.0
+offset_top = 930.0
+offset_right = 1915.0
+offset_bottom = 1075.0
+texture = ExtResource("2_r4wmc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 1905.0
+offset_bottom = 1067.0
+theme = ExtResource("1_21kdr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "Match Results"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_s58my")
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player 1: scriptname"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Money earned.................. $X"
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "No. times stolen................ $X"
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "No. times supported.......... $X"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Player 2: scriptname"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Money earned.................. $X"
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "No. times stolen................ $X"
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "No. times supported.......... $X"
+
+[node name="Separator" type="Control" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

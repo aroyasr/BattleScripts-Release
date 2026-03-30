@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlqe7jelkeddt"]
+
+[ext_resource type="Script" uid="uid://d23ws1drey0ga" path="res://godot_script/global.gd" id="1_eeqj2"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_eeqj2")

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dh8rbt124apvk"]
+
+[ext_resource type="Script" uid="uid://dmwrw53ima3cg" path="res://godot_script/leaderboard.gd" id="1_8lgqg"]
+[ext_resource type="Theme" uid="uid://b0nvnopbrupa4" path="res://Assets/menu_theme.tres" id="1_mrg81"]
+[ext_resource type="Theme" uid="uid://d4n0kgniir5un" path="res://Assets/leaderboard.tres" id="1_wgq7h"]
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="2_wgq7h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8lgqg"]
+font = ExtResource("2_wgq7h")
+font_size = 130
+
+[node name="Leaderboard" type="Control" unique_id=1365487281]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8lgqg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=835965112]
+custom_minimum_size = Vector2(200, 700)
+layout_mode = 0
+offset_left = 890.0
+offset_top = 110.0
+offset_right = 1910.0
+offset_bottom = 910.0
+size_flags_vertical = 0
+theme = ExtResource("1_wgq7h")
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=992914308]
+layout_direction = 2
+layout_mode = 2
+columns = 5
+
+[node name="header_Name" type="Label" parent="ScrollContainer/GridContainer" unique_id=2122958535]
+layout_mode = 2
+text = " Script Filename "
+
+[node name="header_Points" type="Label" parent="ScrollContainer/GridContainer" unique_id=1765062491]
+layout_mode = 2
+text = " Total points "
+
+[node name="header_Support" type="Label" parent="ScrollContainer/GridContainer" unique_id=960758669]
+layout_mode = 2
+text = " Support "
+
+[node name="header_Steal" type="Label" parent="ScrollContainer/GridContainer" unique_id=1186127232]
+layout_mode = 2
+text = " Steal "
+
+[node name="header_Matches" type="Label" parent="ScrollContainer/GridContainer" unique_id=1608970822]
+layout_mode = 2
+text = " Matches "
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=158963687]
+clip_contents = true
+layout_direction = 2
+layout_mode = 0
+offset_top = 84.0
+offset_right = 1007.0
+offset_bottom = 1071.0
+size_flags_horizontal = 0
+theme = ExtResource("1_mrg81")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2037071868]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=2005257894]
+layout_mode = 2
+text = "Leaderboard"
+label_settings = SubResource("LabelSettings_8lgqg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=842321138]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="VBoxContainer_buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer/VBoxContainer" unique_id=994220574]
+custom_minimum_size = Vector2(807, 631)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Button_sort" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer/VBoxContainer_buttons" unique_id=1599474168]
+layout_mode = 2
+text = "Sort by: Money earned"
+
+[node name="Button_clear" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer/VBoxContainer_buttons" unique_id=356020961]
+layout_mode = 2
+text = "Clear Leaderboard data"
+
+[node name="Button_back" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer/VBoxContainer_buttons" unique_id=1569158964]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/VBoxContainer/VBoxContainer_buttons/Button_sort" to="." method="_on_button_sort_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/VBoxContainer/VBoxContainer_buttons/Button_clear" to="." method="_on_button_clear_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/VBoxContainer/VBoxContainer_buttons/Button_back" to="." method="_on_button_back_pressed"]

@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://c45rbn4ri4k7w"]
+
+[ext_resource type="Theme" uid="uid://b60lwleljs85q" path="res://Assets/match_theme.tres" id="1_rbwof"]
+[ext_resource type="Script" uid="uid://3upl7qn3g4bj" path="res://godot_script/match_setup.gd" id="1_xhdjn"]
+[ext_resource type="Texture2D" uid="uid://dhnr7d0wq6y6w" path="res://Assets/python.png" id="2_f0xx7"]
+[ext_resource type="Texture2D" uid="uid://bb15dokx3y6w0" path="res://godot_script/cross.png" id="3_fry0a"]
+[ext_resource type="Texture2D" uid="uid://b5hr7s53alprh" path="res://Assets/half-txt-dm-fix.png" id="4_difc1"]
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="5_xhvq8"]
+[ext_resource type="StyleBox" uid="uid://dnik8fsqsvw5l" path="res://Assets/button_hover.tres" id="6_xhdjn"]
+[ext_resource type="StyleBox" uid="uid://ckedbw0peroyw" path="res://Assets/button_pressed.tres" id="7_f2h72"]
+[ext_resource type="StyleBox" uid="uid://cmq0q1f1lb7qk" path="res://Assets/button.tres" id="8_ckk2f"]
+[ext_resource type="Script" uid="uid://dti5p4oni8nvh" path="res://godot_script/window_errormsg.gd" id="10_f2h72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhdjn"]
+
+[sub_resource type="Theme" id="Theme_48ypu"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("5_xhvq8")
+Button/styles/focus = SubResource("StyleBoxEmpty_xhdjn")
+Button/styles/hover = ExtResource("6_xhdjn")
+Button/styles/hover_pressed = ExtResource("7_f2h72")
+Button/styles/normal = ExtResource("8_ckk2f")
+Button/styles/pressed = ExtResource("7_f2h72")
+
+[node name="MatchSetup" type="Control" unique_id=1367472162]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhdjn")
+
+[node name="Button_back" type="Button" parent="." unique_id=116027767]
+layout_mode = 0
+offset_left = 1650.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 197.0
+theme = SubResource("Theme_48ypu")
+text = "Back"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=429347284]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=2145175121]
+layout_mode = 2
+theme = ExtResource("1_rbwof")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=2088609278]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1901751853]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "Match Setup"
+
+[node name="VBoxContainer_buttons" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1882608337]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer_P1" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons" unique_id=1615728200]
+layout_mode = 2
+alignment = 1
+
+[node name="P1" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P1" unique_id=726375047]
+layout_mode = 2
+text = "P1"
+
+[node name="button_loadfilep1" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P1" unique_id=727969274]
+layout_mode = 2
+text = "Load File"
+
+[node name="button_clearfilep1" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P1" unique_id=232279808]
+visible = false
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_f0xx7")
+texture_pressed = ExtResource("3_fry0a")
+texture_hover = ExtResource("3_fry0a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ScriptName" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P1" unique_id=1498439981]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer_P2" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons" unique_id=1828535744]
+layout_mode = 2
+alignment = 1
+
+[node name="P2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P2" unique_id=2088821951]
+layout_mode = 2
+text = "P2"
+
+[node name="button_loadfilep2" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P2" unique_id=346327550]
+layout_mode = 2
+text = "Load File"
+
+[node name="button_clearfilep2" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P2" unique_id=676737823]
+visible = false
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_f0xx7")
+texture_pressed = ExtResource("3_fry0a")
+texture_hover = ExtResource("3_fry0a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ScriptName" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P2" unique_id=1022246581]
+visible = false
+layout_mode = 2
+text = "Rude.py"
+
+[node name="CheckBox_record" type="CheckBox" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons" unique_id=1868678278]
+layout_mode = 2
+text = "Record Match"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons" unique_id=817233141]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer" unique_id=279460897]
+layout_mode = 2
+text = "Scroll Speed"
+
+[node name="SpinBox" type="SpinBox" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer" unique_id=16399939]
+custom_minimum_size = Vector2(172.625, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+value = 2.0
+rounded = true
+alignment = 2
+suffix = "px/frame"
+
+[node name="Button_startgame" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons" unique_id=99384147]
+layout_mode = 2
+text = "Start Game"
+
+[node name="tuhuratech_logo" type="TextureRect" parent="." unique_id=389650821]
+layout_mode = 0
+offset_left = 1415.0
+offset_top = 930.0
+offset_right = 1915.0
+offset_bottom = 1075.0
+texture = ExtResource("4_difc1")
+
+[node name="FD_loadp1" type="FileDialog" parent="." unique_id=775079639]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(1000, 575)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="FD_loadp2" type="FileDialog" parent="." unique_id=1725072231]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 2
+size = Vector2i(1000, 575)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="Window_errormsg" type="Window" parent="." unique_id=1990196139]
+initial_position = 2
+size = Vector2i(445, 165)
+visible = false
+script = ExtResource("10_f2h72")
+
+[node name="PanelContainer" type="PanelContainer" parent="Window_errormsg" unique_id=773151900]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window_errormsg/PanelContainer" unique_id=770529866]
+layout_mode = 2
+
+[connection signal="pressed" from="Button_back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P1/button_loadfilep1" to="." method="_on_button_loadfilep_1_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P1/button_clearfilep1" to="." method="_on_button_clearfilep_1_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P2/button_loadfilep2" to="." method="_on_button_loadfilep_2_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer_P2/button_clearfilep2" to="." method="_on_button_clearfilep_2_pressed"]
+[connection signal="toggled" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/CheckBox_record" to="." method="_on_check_box_record_toggled"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/HBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/Button_startgame" to="." method="_on_button_startgame_pressed"]
+[connection signal="file_selected" from="FD_loadp1" to="." method="_on_fd_loadp_1_file_selected"]
+[connection signal="file_selected" from="FD_loadp2" to="." method="_on_fd_loadp_2_file_selected"]
+[connection signal="close_requested" from="Window_errormsg" to="Window_errormsg" method="_on_close_requested"]

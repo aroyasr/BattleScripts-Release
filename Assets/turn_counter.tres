@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://cpbrcfvqb8ah7"]
+
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="1_gu3qf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb028"]
+bg_color = Color(0.415686, 0.643137, 0.411765, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+Label/font_sizes/font_size = 70
+Label/fonts/font = ExtResource("1_gu3qf")
+Label/styles/normal = SubResource("StyleBoxFlat_xb028")

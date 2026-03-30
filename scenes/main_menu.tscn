@@ -1,0 +1,182 @@
+[gd_scene load_steps=10 format=3 uid="uid://naq3oxgnmjs8"]
+
+[ext_resource type="Theme" uid="uid://b0nvnopbrupa4" path="res://Assets/menu_theme.tres" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://dcwtvf1m0cwcf" path="res://godot_script/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://cujhjosgr4r21" path="res://Visual Mockups/MenuOverlay_1.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bc67hfvb3x8nm" path="res://Visual Mockups/MenuOverlay_2.png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://cb8xwx5mjgma4" path="res://Visual Mockups/MenuOverlay_3.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://b5hr7s53alprh" path="res://Assets/half-txt-dm-fix.png" id="5_8ln24"]
+
+[sub_resource type="Animation" id="Animation_tbmy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer_pattern/pattern_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer_pattern/pattern_2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer_pattern/pattern_3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+resource_name = "default"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer_pattern/pattern_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-12.5664, 12.5664]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer_pattern/pattern_2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer_pattern/pattern_3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, -3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jk1qb"]
+_data = {
+&"RESET": SubResource("Animation_tbmy8"),
+&"default": SubResource("Animation_oa1go")
+}
+
+[node name="MainMenu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rtw2f")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "BattleScripts"
+
+[node name="VBoxContainer_buttons" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Button_new_game" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Button_leaderboard" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons"]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="Button_quit" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="CenterContainer_pattern" type="Node" parent="."]
+
+[node name="pattern_1" type="TextureRect" parent="CenterContainer_pattern"]
+offset_left = 640.0
+offset_top = 50.0
+offset_right = 1640.0
+offset_bottom = 1050.0
+pivot_offset = Vector2(500, 500)
+texture = ExtResource("2_wu84c")
+
+[node name="pattern_2" type="TextureRect" parent="CenterContainer_pattern"]
+offset_left = 640.0
+offset_top = 50.0
+offset_right = 1640.0
+offset_bottom = 1050.0
+pivot_offset = Vector2(500, 500)
+texture = ExtResource("3_8ln24")
+
+[node name="pattern_3" type="TextureRect" parent="CenterContainer_pattern"]
+offset_left = 640.0
+offset_top = 50.0
+offset_right = 1640.0
+offset_bottom = 1050.0
+pivot_offset = Vector2(500, 500)
+texture = ExtResource("4_rtw2f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer_pattern"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_jk1qb")
+}
+autoplay = "default"
+
+[node name="tuhuratech_logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1415.0
+offset_top = 930.0
+offset_right = 1915.0
+offset_bottom = 1075.0
+texture = ExtResource("5_8ln24")
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/Button_new_game" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/Button_leaderboard" to="." method="_on_button_leaderboard_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/VBoxContainer_buttons/Button_quit" to="." method="_on_button_quit_pressed"]

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d0edcfie6q8ux"]
+
+[ext_resource type="Script" uid="uid://b2givwamq3qos" path="res://godot_script/turn_history.gd" id="1_s6yyv"]
+[ext_resource type="PackedScene" uid="uid://c3v67f58xq062" path="res://scenes/turn_history_cell.tscn" id="1_yjx2c"]
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="3_xbkaw"]
+
+[sub_resource type="Theme" id="Theme_4awtv"]
+HBoxContainer/constants/separation = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6yyv"]
+bg_color = Color(0.415686, 0.643137, 0.411765, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_rnllq"]
+Label/styles/normal = SubResource("StyleBoxFlat_s6yyv")
+VBoxContainer/constants/separation = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tdqy"]
+paragraph_spacing = 2.5
+font = ExtResource("3_xbkaw")
+font_size = 40
+
+[node name="TurnHistory" type="Control" unique_id=1024743104]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6yyv")
+
+[node name="TimelineContainer" type="HBoxContainer" parent="." unique_id=453756811]
+layout_mode = 0
+offset_left = 1920.0
+offset_right = 3570.0
+offset_bottom = 195.0
+theme = SubResource("Theme_4awtv")
+
+[node name="TurnHistoryCell_example" parent="TimelineContainer" unique_id=508896886 instance=ExtResource("1_yjx2c")]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1916972072]
+z_index = 1
+z_as_relative = false
+layout_mode = 0
+offset_right = 270.0
+offset_bottom = 195.0
+theme = SubResource("Theme_rnllq")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1664152325]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "Turn"
+label_settings = SubResource("LabelSettings_7tdqy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=687971501]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "P1"
+label_settings = SubResource("LabelSettings_7tdqy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1248668942]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "P2"
+label_settings = SubResource("LabelSettings_7tdqy")
+horizontal_alignment = 1
+vertical_alignment = 1

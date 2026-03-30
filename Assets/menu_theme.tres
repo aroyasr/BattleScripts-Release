@@ -1,0 +1,69 @@
+[gd_resource type="Theme" format=3 uid="uid://b0nvnopbrupa4"]
+
+[ext_resource type="FontFile" uid="uid://ci74i11770cx5" path="res://Assets/FaceType - PublicaPlay-Regular.otf" id="1_358en"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_358en"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whbv6"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.386359, 0.604804, 0.382797, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+anti_aliasing = false
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_358en"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.415686, 0.643137, 0.411765, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+anti_aliasing = false
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_358en"]
+content_margin_left = 50.0
+content_margin_right = 150.0
+content_margin_bottom = 150.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 58
+Button/fonts/font = ExtResource("1_358en")
+Button/styles/focus = SubResource("StyleBoxEmpty_358en")
+Button/styles/hover = SubResource("StyleBoxFlat_whbv6")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_whbv6")
+Button/styles/normal = SubResource("StyleBoxFlat_358en")
+Button/styles/pressed = SubResource("StyleBoxFlat_358en")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 200
+Label/fonts/font = ExtResource("1_358en")
+Label/styles/normal = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_358en")
+VBoxContainer/constants/separation = 50
