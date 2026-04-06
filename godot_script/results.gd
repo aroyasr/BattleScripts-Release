@@ -34,7 +34,7 @@ func _ready():
 # if yes, add onto existing data
 # Then write the updated leaderboard into the json file
 func record_match(match_data):
-	var file = FileAccess.open("res://leaderboard.json", FileAccess.READ)
+	var file = FileAccess.open("leaderboard.json", FileAccess.READ)
 	if file:
 		var content = file.get_as_text()
 		var json_parser = JSON.new()

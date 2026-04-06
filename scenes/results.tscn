@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbexvuwpvy8it"]
+[gd_scene format=3 uid="uid://bbexvuwpvy8it"]
 
 [ext_resource type="Theme" uid="uid://b60lwleljs85q" path="res://Assets/match_theme.tres" id="1_21kdr"]
-[ext_resource type="Script" uid="uid://brna0mvu2coho" path="res://scenes/results.gd" id="1_r4wmc"]
+[ext_resource type="Script" uid="uid://brna0mvu2coho" path="res://godot_script/results.gd" id="1_r4wmc"]
 [ext_resource type="Texture2D" uid="uid://b5hr7s53alprh" path="res://Assets/half-txt-dm-fix.png" id="2_r4wmc"]
 
 [sub_resource type="Theme" id="Theme_s58my"]
