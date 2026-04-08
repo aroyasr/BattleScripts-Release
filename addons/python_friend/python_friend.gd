@@ -12,7 +12,7 @@ extends Node
 ## Linux/MacOS: py_backend [br]
 ## Windows: py_backend.exe [br] [br]
 ## Note: This executable must be in the same folder as the Godot app
-@export var exec_file_name: String = "py_backend.exe"
+@export var exec_file_name: String = "py_backend"
 
 ## Emitted when Godot receives the output from Python[br] [br]
 ## [param output] - [Dictionary] with the received data from Python

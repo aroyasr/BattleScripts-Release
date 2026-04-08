@@ -95,7 +95,7 @@ def exit():
 # This dictionary maps function names (strings) to their corresponding Python functions, allowing Godot to call them by name.
 func_map = {
 	"init": init, # Initialise gameManager object. Take scripts paths as params
-	#"get_turn_results": get_turn_results # Not included because its called internally
+	"get_turn_results": get_turn_results # Not included because its called internally
 	#"exit": exit, # Not included because its called internally
 }
 
