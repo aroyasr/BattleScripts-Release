@@ -57,6 +57,9 @@ class Array(Script):
             return ACTIONS.SUPPORT
 
     def arrays_failure(self):
-        return self.their_move_history[0]
+        if len(self.their_move_history) > 0:
+            return ACTIONS.STEAL if self.their_move_history[-1] == ACTIONS.STEAL.value else ACTIONS.SUPPORT
+
+        return ACTIONS.STEAL
 
 script = Array()

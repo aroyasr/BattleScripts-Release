@@ -5,12 +5,9 @@ import godot_friend
 import gm_main
 import sys
 import time
-import traceback
-from pathlib import Path
 
 # Module-level variable to hold the game manager object
 gm_obj = None
-
 
 # Initialise gameManager object. Take scripts paths as params. 
 # This function is called by pythonFriend node in godot.
@@ -24,6 +21,7 @@ gm_obj = None
 
 def init(params):
 	global gm_obj
+
 	loop_counter = 0
 	threshold = 600*5 # 5 minutes at 0.1s sleep per loop
 	try:

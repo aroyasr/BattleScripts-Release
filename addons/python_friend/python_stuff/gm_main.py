@@ -9,7 +9,6 @@
 
 import importlib.util
 from pathlib import Path
-import inspect
 from script import ACTIONS
 
 # Constants
@@ -36,6 +35,7 @@ class PlayerWrapper:
         spec = importlib.util.spec_from_file_location(module_name, path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
+
         return module
 
     def run_turn(self, opponent_money, turn_number, opponent_last_move):
@@ -49,19 +49,19 @@ class PlayerWrapper:
             turn_number,
             self.last_move,
             opponent_last_move
-        ).value
+        )
 
         # Validate move
-        if move not in (STEAL, SUPPORT):
+        if not move or move not in (ACTIONS.STEAL, ACTIONS.SUPPORT):
             raise ValueError(
                 f"Invalid move returned by {self.filepath.name}: {move}"
             )
 
         # Update internal state
-        self.last_move = move
-        self.move_history.append(move)
+        self.last_move = move.value
+        self.move_history.append(move.value)
 
-        return move
+        return move.value
 
 
 class GameManager:
