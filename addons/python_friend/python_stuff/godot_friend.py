@@ -1,18 +1,24 @@
 import json
 from platformdirs import user_data_dir
+import platform
 from pathlib import Path
 import tkinter as tk
 from tkinter import messagebox
 
 app_name = "Godot"
-
+current_os = platform.system()
 debug_enabled = False
 
-godot_data_dir = Path(user_data_dir("app_userdata", app_name, roaming=True))
+godot_data_dir = ""
+
+if current_os == "Windows":
+	godot_data_dir = Path(user_data_dir("app_userdata", app_name, roaming=True))
+else:
+	godot_data_dir = Path(user_data_dir("godot", app_name, roaming=True), "app_userdata")
+
 app_data_dir = godot_data_dir
 
 func_map = {}
-
 
 def show_debug_message(message):
 	if debug_enabled:
@@ -21,11 +27,9 @@ def show_debug_message(message):
 		messagebox.showinfo("Debug", message)
 		root.destroy()
 
-
 def set_debug(enabled):
 	global debug_enabled
 	debug_enabled = enabled
-
 
 def set_app_name(name):
 	global app_name
@@ -52,22 +56,20 @@ def get_comm_channel_input():
 	show_debug_message("comm_channel.json not found.")
 	return None
 
-
 def set_comm_channel_output(data):
 	comm_channel_file = app_data_dir / "comm_channel.json"
 	with open(comm_channel_file, 'w') as file:
 		json.dump(data, file, indent=4)
 	#show_debug_message(f"comm_channel.json updated with data: {data}")
 
-
 def add_map(mapping):
 	global func_map
 	func_map = mapping
 
-
 def ready():
 	try:
 		comm_channel_input = get_comm_channel_input()
+
 		if not comm_channel_input:
 			set_comm_channel_output({"error": "No input found.", "PYTHON_ERROR": "true"})
 			#show_debug_message("No input found in comm_channel.json.")

@@ -9,11 +9,11 @@
 
 import importlib.util
 from pathlib import Path
-import inspect
+from script import ACTIONS
 
 # Constants
-STEAL = 0
-SUPPORT = 1
+STEAL = ACTIONS.STEAL.value
+SUPPORT = ACTIONS.SUPPORT.value
 
 class PlayerWrapper:
     """Loads a student script and manages its state."""
@@ -21,6 +21,7 @@ class PlayerWrapper:
     def __init__(self, filepath):
         self.filepath = Path(filepath)
         self.module = self._load_module(self.filepath)
+        self.script = self.module.script
 
         # Persistent state for this player
         self.money = 0
@@ -34,6 +35,7 @@ class PlayerWrapper:
         spec = importlib.util.spec_from_file_location(module_name, path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
+
         return module
 
     def run_turn(self, opponent_money, turn_number, opponent_last_move):
@@ -41,7 +43,7 @@ class PlayerWrapper:
         Calls the student's main() function.
         The student's update() will modify their internal variables.
         """
-        move = self.module.main(
+        move = self.script.main(
             self.money,
             opponent_money,
             turn_number,
@@ -50,16 +52,16 @@ class PlayerWrapper:
         )
 
         # Validate move
-        if move not in (STEAL, SUPPORT):
+        if not move or move not in (ACTIONS.STEAL, ACTIONS.SUPPORT):
             raise ValueError(
                 f"Invalid move returned by {self.filepath.name}: {move}"
             )
 
         # Update internal state
-        self.last_move = move
-        self.move_history.append(move)
+        self.last_move = move.value
+        self.move_history.append(move.value)
 
-        return move
+        return move.value
 
 
 class GameManager:

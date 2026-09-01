@@ -29,23 +29,21 @@ var record_match: bool
 ## - Return name of script if valid
 func validate_script(path: String):
 	var pystdout = []
-	var validator_script = ProjectSettings.globalize_path("res://addons/python_friend/python_stuff/file_validator.py")
+	var validator_script = ProjectSettings.globalize_path("user://file_validator.py")
 	var script_path = ProjectSettings.globalize_path(path)
-	
-	# Detect OS and use appropriate Python command
-	var python_cmd = "python"
-	if OS.get_name() in ["Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD"]:
-		python_cmd = "python3"
-	
-	var result = OS.execute(python_cmd, [validator_script, script_path], pystdout)
+
+	var result = OS.execute(Root.python_interpreter, [validator_script, script_path], pystdout, true)
 	$Window_errormsg.clear_errors()
+
 	# Check if execution was successful (return code 0)
 	if result != 0:
 		# Validation failed - print errors
 		if pystdout.size() > 0:
-			print("Validation errors:")
+			$Window_errormsg.add_error("Validation errors:")
+
 			for error in pystdout:
 				$Window_errormsg.add_error(error)
+
 			$Window_errormsg.show()
 		return null
 	
@@ -105,7 +103,6 @@ func _on_fd_loadp_1_file_selected(path: String) -> void:
 		p1_clearButton.visible = true
 		p1_loadButton.visible = false
 
-
 func _on_fd_loadp_2_file_selected(path: String) -> void:
 	var script_name = validate_script(path)
 	if script_name != null:
@@ -115,7 +112,6 @@ func _on_fd_loadp_2_file_selected(path: String) -> void:
 		p2_fileLabel.visible = true
 		p2_clearButton.visible = true
 		p2_loadButton.visible = false
-
 
 func _on_button_startgame_pressed() -> void:
 	if p1_filename == "" or p2_filename == "":
@@ -129,7 +125,6 @@ func _on_button_startgame_pressed() -> void:
 
 func _on_check_box_record_toggled(toggled_on: bool) -> void:
 	Root.record_match = toggled_on
-
 
 func _on_spin_box_value_changed(value: float) -> void:
 	Root.bar_increment = int(value)

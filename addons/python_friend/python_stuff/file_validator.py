@@ -76,25 +76,26 @@ def validate_file(filepath):
     except Exception as e:
         errors.append(f"ERROR: Failed to check imports: {str(e)}")
     
-    # Check 1: Must contain main function with correct signature
-    main_found = False
+    # Check 1: Must contain a 'script' variable assignment
+    script_found = False
     try:
         tree = ast.parse(code)
+
         for node in ast.walk(tree):
-            if isinstance(node, ast.FunctionDef) and node.name == 'main':
-                # Check parameters
-                params = [arg.arg for arg in node.args.args]
-                expected_params = ['thismoney', 'theirmoney', 'currentturn', 'thisrecentturn', 'theirrecentturn']
-                if params == expected_params:
-                    main_found = True
-                else:
-                    errors.append(f"ERROR: main() has wrong parameters. Expected {expected_params}, got {params}")
+            # Look for: script = ...
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if isinstance(target, ast.Name) and target.id == 'script':
+                        script_found = True
+                        break
+
+            if script_found:
                 break
     except Exception as e:
-        errors.append(f"ERROR: Failed to check main function: {str(e)}")
-    
-    if not main_found and not any('main()' in err for err in errors):
-        errors.append("ERROR: Function 'def main(thismoney, theirmoney, currentturn, thisrecentturn, theirrecentturn):' not found")
+        errors.append(f"ERROR: Failed to check script variable: {str(e)}")
+
+    if not script_found:
+        errors.append("ERROR: Variable 'script = [Script Class]' not found")
     
     # If we have errors, return invalid
     if errors:
@@ -102,7 +103,6 @@ def validate_file(filepath):
     
     # All checks passed
     return {'valid': True, 'name': path.stem, 'errors': []}
-
 
 def main():
     """Entry point for Godot GDScript calls."""

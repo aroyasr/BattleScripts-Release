@@ -57,7 +57,6 @@ func _ready() -> void:
 	autoplay_buffer_timer()
 	$PythonFriend.python_init("init", {"script1_path": Root.p1_script_path, "script2_path": Root.p2_script_path, "GD_OUTPUT": "true", "PY_OUTPUT": "false"})
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if current_state == matchState.PYTHON_ERR:
@@ -70,24 +69,28 @@ func _process(_delta: float) -> void:
 	if current_state == matchState.AWAIT_INPUT:
 		auto_mode()
 		return
-	
+
 	# write to comm file to run next turn
 	if current_state == matchState.GET_RESULT:
 		$PythonFriend.python_run("get_turn_results", {"GD_OUTPUT": "true", "PY_OUTPUT": "false"})
 		change_state(matchState.AWAIT_RESULT)
-	
+
 	# read comm file until python output saved
 	if current_state == matchState.AWAIT_RESULT:
 		if !result_received:
 			$AnimationPlayer.play("get_result", -1, 2.0)
+
 		while !result_received:
 			var data = $PythonFriend.read_python_output()
+
 			if data.get("PY_OUTPUT") == "true":
 				match_data = data.get("turn_results")
 				result_received = true
+
 			if data.get("PYTHON_ERROR") == "true":
 				result_received = true
 				current_state = matchState.PYTHON_ERR
+
 		if !$AnimationPlayer.is_playing():
 			change_state(matchState.DISPLAY_RESULT)
 	
@@ -103,7 +106,6 @@ func _process(_delta: float) -> void:
 			Root.match_data = match_data
 			Root.game_controller.change_ui_scene("res://scenes/results.tscn")
 		change_state(matchState.AWAIT_INPUT)
-
 
 func change_state(new_state: matchState):
 	current_state = new_state
